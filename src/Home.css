@@ -20,6 +20,18 @@ h1 {
     animation: moveBox 6s linear infinite;
 }
 
+.button-style {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
 @keyframes moveBox {
     0% {
         left: 0%;

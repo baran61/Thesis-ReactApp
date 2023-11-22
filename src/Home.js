@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css'; // Import your CSS file with appropriate styles
-
+import { Link } from 'react-router-dom';
 const Home = () => {
   const [boxes, setBoxes] = useState([]);
   const [left, setLeft] = useState(0);
@@ -31,7 +31,7 @@ const Home = () => {
   }, [direction]);
 
   const addBox = () => {
-    const newBoxes = Array.from({ length: 10 }, (_, index) => ({
+    const newBoxes = Array.from({ length: 20 }, (_, index) => ({
       id: Date.now() + index,
       top: Math.floor(Math.random() * (window.innerHeight - 50)), // Random position within window height
       left: Math.floor(Math.random() * (window.innerWidth - 50)), // Random position within window width
@@ -40,7 +40,7 @@ const Home = () => {
   };
 
   const removeBox = () => {
-    const remainingBoxes = boxes.length > 10 ? boxes.slice(0, -10) : [];
+    const remainingBoxes = boxes.length > 20 ? boxes.slice(0, -20) : [];
     setBoxes(remainingBoxes);
   };
 
@@ -52,8 +52,11 @@ const Home = () => {
           <div className="box" key={box.id} style={{ top: box.top, left: box.left }}></div>
         ))}
       </div>
-      <button onClick={addBox}>Add 10  Boxes</button>
-      <button onClick={removeBox}>Remove 10  Boxes</button>
+      <button onClick={addBox} className='button-style'>Add 20  Boxes</button>
+      <button onClick={removeBox} className='button-style'>Remove 20  Boxes</button>
+      
+      <Link to="/measure" className='button-style'>Go to Measuring Page</Link>
+
     </div>
   );
 };
